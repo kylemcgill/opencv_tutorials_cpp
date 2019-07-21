@@ -14,6 +14,7 @@
 #include <string>
 #include <stdint.h>
 #include <sstream>
+#include <opencv2/opencv.hpp>
 
 
 #endif /* STANDARDHEADERS_H_ */

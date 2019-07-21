@@ -14,6 +14,7 @@
 #include "core_functionality_5/CoreFunctionality5.h"
 #include "core_functionality_6/CoreFunctionality6.h"
 #include "core_functionality_7/CoreFunctionality7.h"
+#include "image_processing/BasicDrawing.h"
 
 enum Tutorial{
 	NONE,
@@ -23,7 +24,8 @@ enum Tutorial{
 	CORE_FUNCTIONALITY_4,
 	CORE_FUNCTIONALITY_5,
 	CORE_FUNCTIONALITY_6,
-	CORE_FUNCTIONALITY_7
+	CORE_FUNCTIONALITY_7,
+	BASIC_DRAWING
 };
 
 
@@ -42,6 +44,8 @@ Tutorial parseTutorial(std::string str){
 		return Tutorial::CORE_FUNCTIONALITY_6;
 	}else if(strcmp("core_functionality_7", str.c_str()) == 0){
 		return Tutorial::CORE_FUNCTIONALITY_7;
+	}else if(strcmp("basic_drawing", str.c_str()) == 0){
+		return Tutorial::BASIC_DRAWING;
 	}
 
 	return Tutorial::NONE;
@@ -56,6 +60,7 @@ void printTutorialOptions(){
 	printf("\tcore_functionality_5\n");
 	printf("\tcore_functionality_6\n");
 	printf("\tcore_functionality_7\n");
+	printf("\tbasic_drawing\n");
 }
 
 int main(int argc, char* argv[]){
@@ -110,6 +115,10 @@ int main(int argc, char* argv[]){
 	case CORE_FUNCTIONALITY_7:{
 		CoreFunctionality7 obj;
 		error = obj.run(filename);
+		break;
+	}
+	case BASIC_DRAWING:{
+		error = BasicDrawing().run(filename);
 		break;
 	}
 
